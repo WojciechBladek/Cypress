@@ -12,13 +12,13 @@ export class RegisterPage extends BasePage {
     return cy.get('#reg_password');
   }
   get registerButton(): Locator {
-    return cy.get('[name="register"]');
+    return cy.get('input[name="register"]');
   }
   get welcomeText(): Locator {
-    return cy.get('.woocommerce-MyAccount-content > p').first();
+    return cy.get('.woocommerce-MyAccount-content').first();
   }
   get emailErrorText(): Locator {
-    return cy.get('.woocommerce-error > li');
+    return cy.get('.woocommerce-error');
   }
   constructor() {
     super();

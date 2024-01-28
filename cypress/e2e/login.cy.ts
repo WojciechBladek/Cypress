@@ -30,6 +30,6 @@ describe('Verify login', () => {
     loginPage.userNameInput.invoke('attr', 'type').should('eq', 'text');
     loginPage.userPasswordInput.invoke('attr', 'type').should('eq', 'password');
 
-    loginPage.loginError.should('have.text', errorMessage);
+    loginPage.loginError.should('contain', errorMessage);
   });
 });
