@@ -15,7 +15,7 @@ export class LoginPage extends BasePage {
     return cy.get('[name="login"]');
   }
   get welcomeText(): Locator {
-    return cy.get('.woocommerce-MyAccount-content').first();
+    return cy.get('.woocommerce-MyAccount-content > p').first();
   }
   get loginError(): Locator {
     return cy.get('.woocommerce-error > li');
