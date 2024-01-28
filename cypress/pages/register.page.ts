@@ -25,8 +25,8 @@ export class RegisterPage extends BasePage {
   }
 
   registerNewUser(registerUserData: RegisterUserModel): void {
-    this.registerEmailInput.type(registerUserData.userEmail);
-    this.registerPasswordInput.type(registerUserData.userPassword);
+    this.registerEmailInput.type(registerUserData.userEmail, {delay:50});
+    this.registerPasswordInput.type(registerUserData.userPassword, {delay:50});
     this.registerButton.click();
   }
 
