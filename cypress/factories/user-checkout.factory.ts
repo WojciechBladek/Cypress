@@ -1,4 +1,3 @@
-
 import { faker } from '@faker-js/faker/locale/en';
 import { UserCheckoutDataModel } from 'cypress/models/user-checkout.model';
 

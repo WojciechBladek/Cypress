@@ -29,7 +29,7 @@ export class ShopPage extends BasePage {
       const randomProduct = getRandomValue(count);
       const text = $txt.eq(randomProduct).text();
       cy.log(text);
-      cy.wrap(text).as('exceptedName');
+      cy.wrap(text.replace('–', '-')).as('exceptedName');
       this.addToCartButton.eq(randomProduct).click();
     });
   }

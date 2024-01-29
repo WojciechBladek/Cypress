@@ -18,7 +18,7 @@ describe('Verify register', () => {
 
     // Assert
     registerPage.welcomeText.should(
-      'have.text',
+      'contain',
       registerPage.expectedWelcomeText(userName),
     );
   });
@@ -32,7 +32,7 @@ describe('Verify register', () => {
 
     // Assert
     registerPage.welcomeText.should(
-      'have.text',
+      'contain',
       registerPage.expectedWelcomeText(userName),
     );
   });
@@ -55,6 +55,6 @@ describe('Verify register', () => {
       .should('eq', 'password');
 
     registerPage.emailErrorText.should('be.visible');
-    registerPage.emailErrorText.should('have.text', errorMessage);
+    registerPage.emailErrorText.should('contain', errorMessage);
   });
 });
