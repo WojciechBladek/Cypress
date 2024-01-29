@@ -21,15 +21,18 @@ Follow instructions in app README
 - setup husky with: `npx husky install`
 - prepare local env file: `.env`
 - .env file variables example:
+
 ```
 BASE_URL='https://skleptest.pl/'
 USER_EMAIL='email.adress@test.com'
 USER_PASSWORD='password'
 USER_NAME= 'email.adress'
 ```
+
 - go to base url and then create an account with your data and substitute it into the variables in .env
 
 ### Update framework
+
 - cd /your/project/path
 - install latest version of `npm install cypress --save-dev`
 - check version `npx cypress version`
@@ -47,6 +50,5 @@ Open cypress:
 ```
 npx cypress open
 ```
-
 
 For more usage cases look in `package.json` scripts section.
