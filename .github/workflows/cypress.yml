@@ -37,15 +37,14 @@ jobs:
       - name: Run Cypress tests
         run: npm run cypress:all-tests
       - name: Archive test results
-        if: always()
+        if: success() || failure()
         uses: actions/upload-artifact@v3
         with:
           name: test-reports
           path: |
             results/**/*.*
       - name: Publish test report
-        if: always()
-        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: success() || failure()
+        uses: mikepenz/action-junit-report@v4
         with:
-          files: |
-             'results/my-test-output.xml'
+          report_paths: 'results/my-test-output.xml'
