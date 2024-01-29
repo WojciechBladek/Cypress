@@ -44,7 +44,8 @@ jobs:
           path: |
             results/**/*.*
       - name: Publish test report
-        if: success() || failure()
+        if: always()
         uses: EnricoMi/publish-unit-test-result-action@v2
         with:
-          report_paths: './results/my-test-output.xml'
+          files: |
+             'results/my-test-output.xml'
