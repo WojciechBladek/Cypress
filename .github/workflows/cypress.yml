@@ -45,6 +45,6 @@ jobs:
             results/**/*.*
       - name: Publish test report
         if: success() || failure()
-        uses: mikepenz/action-junit-report@v4
+        uses: EnricoMi/publish-unit-test-result-action@v2
         with:
           report_paths: './results/my-test-output.xml'
