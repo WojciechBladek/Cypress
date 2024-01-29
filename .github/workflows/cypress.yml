@@ -37,7 +37,7 @@ jobs:
       - name: Run Cypress tests
         run: npm run cypress:all-tests
       - name: Archive test results
-        if: success() || failure()
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: test-reports
@@ -48,4 +48,4 @@ jobs:
         uses: EnricoMi/publish-unit-test-result-action@v2
         with:
           files: |
-             './results/my-test-output.xml'
+             'results/my-test-output.xml'
