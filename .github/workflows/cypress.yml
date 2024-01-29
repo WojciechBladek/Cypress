@@ -48,4 +48,4 @@ jobs:
         uses: EnricoMi/publish-unit-test-result-action@v2
         with:
           files: |
-             'results/my-test-output.xml'
+             './results/my-test-output.xml'
