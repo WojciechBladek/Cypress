@@ -13,11 +13,6 @@ export default defineConfig({
     pageLoadTimeout: 60000,
     screenshotOnRunFailure: true,
     screenshotsFolder: 'cypress/screenshots',
-    reporter: 'junit',
-    reporterOptions: {
-      mochaFile: 'results/my-test-output.xml',
-      toConsole: true,
-    },
     viewportHeight: 990,
     viewportWidth: 1440,
     env: {
@@ -26,5 +21,11 @@ export default defineConfig({
       userName: USER_NAME,
     },
     experimentalRunAllSpecs: true,
+    reporter: 'mochawesome',
+    reporterOptions: {
+      overwrite: false,
+      html: false,
+      json: true,
+    },
   },
 });

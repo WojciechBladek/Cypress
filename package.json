@@ -8,7 +8,9 @@
     "format:check": "npx prettier . --check \"!**.ts\"",
     "lint": "npx eslint . --ext .ts --max-warnings=0",
     "cypress:open": "cypress open",
-    "cypress:all-tests": "cypress run --browser chrome"
+    "cypress:all-tests": "cypress run --browser chrome",
+    "cypress:run-tests": "node cypress-reporter.js",
+    "generate:report": "mochawesome-merge 'mochawesome-report/*.json' > test-result.json"
   },
   "keywords": [],
   "author": "Wojciech Bladek",
@@ -20,6 +22,7 @@
     "@typescript-eslint/eslint-plugin": "^6.6.0",
     "@typescript-eslint/parser": "^6.6.0",
     "cypress": "^13.2.0",
+    "cypress-multi-reporters": "^1.6.4",
     "dotenv": "^16.3.1",
     "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
@@ -27,6 +30,9 @@
     "eslint-plugin-prettier": "^5.0.0",
     "husky": "^8.0.3",
     "mocha": "^10.2.0",
+    "mocha-junit-reporter": "^2.2.1",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
     "typescript": "^5.2.2"
   },
   "dependencies": {
