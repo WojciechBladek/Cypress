@@ -35,25 +35,15 @@ jobs:
         run: |
           echo "${{ secrets.ENV }}" > .env
       - name: Run Cypress tests
-        run: npm run cypress:run-tests
-      - name: Generate report json
-        run: npm run generate:report
-      - name: Generate html report
-        run: npm run generate:html:report
+        run: npm run cypress:run-tests-with-reporter
       - name: Archive test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: test-reports
           path: mochawesome-report
-      - name: ANY REPROT - GH Pages Push - SAME REPO
-        uses: PavanMudigonda/html-reporter-github-pages@v1.2
+      - name: Publish test report
+        if: success() || failure()
+        uses: mikepenz/action-junit-report@v4
         with:
-          test_results: test-reports
-          keep_reports: 20
-          gh_pages: gh_pages # BRANCH NAME you like
-          subfolder: docs  # Level 1 Folder Structure you like
-          tool_name: cucumber # Level 2 Folder Structure you like
-          workflow_name: ${{ github.workflow }} # Level 3 Folder Structure you like
-          env: QA # Level 4 Folder Structure you like
-
+            report_paths: 'mochawesome-report/junit/*.xml'

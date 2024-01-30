@@ -21,11 +21,9 @@ export default defineConfig({
       userName: USER_NAME,
     },
     experimentalRunAllSpecs: true,
-    reporter: 'mochawesome',
+    reporter: 'cypress-multi-reporters',
     reporterOptions: {
-      overwrite: false,
-      html: false,
-      json: true,
+      configFile: 'reporter-config.json',
     },
   },
 });

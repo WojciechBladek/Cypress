@@ -4,14 +4,16 @@
   "description": "cypress automation framework",
   "main": "index.js",
   "scripts": {
+    "cypress:run-tests-with-reporter": "npm run remove:test-result && npm run cypress:test-chrome && npm run mocha:merge-report",
     "format": "npx prettier --write .",
     "format:check": "npx prettier . --check \"!**.ts\"",
     "lint": "npx eslint . --ext .ts --max-warnings=0",
-    "cypress:open": "cypress open",
-    "cypress:all-tests": "cypress run --browser chrome",
-    "cypress:run-tests": "node cypress-reporter.js",
-    "generate:report": "mochawesome-merge 'mochawesome-report/*.json' > test-result.json",
-    "generate:html:report": "npx marge test-result.json --reportFilename index.html"
+    "cypress:ui-mode": "cypress open",
+    "cypress:test-chrome": "cypress run --browser chrome",
+    "remove:test-result": "node remove-test-results.js",
+    "mocha:report": "mochawesome-merge 'mochawesome-report/*.json' > test-result.json",
+    "mocha:merge-report": "npx marge test-result.json --reportFilename index.html",
+    "cypres:report-junit": "npm run remove:report-result && cypress run --reporter cypress-multi-reporters \\ --reporter-options configFile=reporter-config.json"
   },
   "keywords": [],
   "author": "Wojciech Bladek",
