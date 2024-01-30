@@ -4,11 +4,16 @@
   "description": "cypress automation framework",
   "main": "index.js",
   "scripts": {
+    "cypress:run-tests-with-reporter": "npm run remove:test-result && npm run cypress:test-chrome && npm run mocha:report && npm run mocha:merge-report",
     "format": "npx prettier --write .",
     "format:check": "npx prettier . --check \"!**.ts\"",
     "lint": "npx eslint . --ext .ts --max-warnings=0",
-    "cypress:open": "cypress open",
-    "cypress:all-tests": "cypress run --browser chrome"
+    "cypress:ui-mode": "cypress open",
+    "cypress:test-chrome": "cypress run --browser chrome",
+    "remove:test-result": "node remove-test-results.js",
+    "mocha:report": "mochawesome-merge 'mochawesome-report/*.json' > test-result.json",
+    "mocha:merge-report": "npx marge test-result.json --reportFilename index.html",
+    "cypres:report-junit": "npm run remove:report-result && cypress run --reporter cypress-multi-reporters \\ --reporter-options configFile=reporter-config.json"
   },
   "keywords": [],
   "author": "Wojciech Bladek",
@@ -20,6 +25,7 @@
     "@typescript-eslint/eslint-plugin": "^6.6.0",
     "@typescript-eslint/parser": "^6.6.0",
     "cypress": "^13.2.0",
+    "cypress-multi-reporters": "^1.6.4",
     "dotenv": "^16.3.1",
     "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
@@ -27,6 +33,9 @@
     "eslint-plugin-prettier": "^5.0.0",
     "husky": "^8.0.3",
     "mocha": "^10.2.0",
+    "mocha-junit-reporter": "^2.2.1",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
     "typescript": "^5.2.2"
   },
   "dependencies": {
