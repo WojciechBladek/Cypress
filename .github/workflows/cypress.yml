@@ -35,16 +35,15 @@ jobs:
         run: |
           echo "${{ secrets.ENV }}" > .env
       - name: Run Cypress tests
-        run: npm run cypress:all-tests
+        run: npm run cypress:run-tests-with-reporter
       - name: Archive test results
-        if: success() || failure()
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: test-reports
-          path: |
-            results/**/*.*
+          path: mochawesome-report
       - name: Publish test report
         if: success() || failure()
         uses: mikepenz/action-junit-report@v4
         with:
-          report_paths: 'results/my-test-output.xml'
+            report_paths: 'mochawesome-report/junit/*.xml'
