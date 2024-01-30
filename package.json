@@ -10,7 +10,8 @@
     "cypress:open": "cypress open",
     "cypress:all-tests": "cypress run --browser chrome",
     "cypress:run-tests": "node cypress-reporter.js",
-    "generate:report": "mochawesome-merge 'mochawesome-report/*.json' > test-result.json"
+    "generate:report": "mochawesome-merge 'mochawesome-report/*.json' > test-result.json",
+    "generate:html:report": "npx marge test-result.json --reportFilename index.html"
   },
   "keywords": [],
   "author": "Wojciech Bladek",
