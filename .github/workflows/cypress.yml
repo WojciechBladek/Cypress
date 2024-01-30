@@ -45,5 +45,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-reports
-          path: test-result.json
+          path: mochawesome-report/assets/*
 
