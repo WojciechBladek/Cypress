@@ -4,7 +4,7 @@
   "description": "cypress automation framework",
   "main": "index.js",
   "scripts": {
-    "cypress:run-tests-with-reporter": "npm run remove:test-result && npm run cypress:test-chrome && npm run mocha:merge-report",
+    "cypress:run-tests-with-reporter": "npm run remove:test-result && npm run cypress:test-chrome && npm run mocha:report && npm run mocha:merge-report",
     "format": "npx prettier --write .",
     "format:check": "npx prettier . --check \"!**.ts\"",
     "lint": "npx eslint . --ext .ts --max-warnings=0",
