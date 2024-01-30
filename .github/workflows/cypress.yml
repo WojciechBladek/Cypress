@@ -36,14 +36,14 @@ jobs:
           echo "${{ secrets.ENV }}" > .env
       - name: Run Cypress tests
         run: npm run cypress:run-tests
-      - name: Generate report
-        run: |
-          npm run generate:report
-          npm run generate:html:report
+      - name: Generate report json
+        run: npm run generate:report
+      - name: Generate html report
+        run: npm run generate:html:report
       - name: Archive test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: test-reports
-          path: mochawesome-report/assets
+          path: mochawesome-report
 
