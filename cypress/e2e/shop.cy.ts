@@ -13,7 +13,7 @@ describe('Verify shop', () => {
     // Act
     shopPage.goto();
     shopPage.addRandomProductToMyCart();
-    shopPage.myCartButton.click();
+    const cartPage = shopPage.clickMyCartButton();
 
     //Assert
     cy.get('@exceptedName').then((exceptedName) => {
@@ -23,6 +23,6 @@ describe('Verify shop', () => {
   //TODO: wip
   it.skip('Open shop page', () => {
     // Act
-    cartPage.goto();
+    // cartPage.goto();
   });
 });
