@@ -33,4 +33,16 @@ export class ShopPage extends BasePage {
       this.addToCartButton.eq(randomProduct).click();
     });
   }
+  clickMyCartButton(): CartPage {
+    this.myCartButton.click();
+
+    cy.get('body').then(($body) => {
+      if ($body.find(this.cartPage.cartEmptySelector).is(':visible')) {
+        this.myCartButton.click();
+      } else {
+        assert.isOk('ok');
+      }
+    });
+    return new CartPage();
+  }
 }
